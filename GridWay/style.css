@@ -1,0 +1,162 @@
+*{ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    --webkit-font-smoothing: antialiased;
+    --moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    --blue-300: #387E96;
+    --blue-700: #065E7C;
+    --white:#FFFFFF;
+
+    font-family: 'Mulish', sans-serif;
+    font-weight: 400;
+}
+
+body {
+    font-size: 1rem;
+    background-color: var(--blue-700);
+}
+
+#app{
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    height: 100vh;
+}
+
+.container {
+    /* When arrives at 1140px it will stop growing */
+    width: min(76rem,100%);
+    
+    padding: 0.75rem 2rem;
+    /* Centralize everything */
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+header form {
+    flex:1;
+}
+
+.input-wrapper label {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+}
+
+.input-wrapper input{
+    width: 100%;
+
+    border: none;
+    padding: 1rem;
+
+    border-radius: 8px;
+
+    font-size: 1rem;
+    font-weight: 600;
+    
+    opacity: .7;
+    color: var(--white);
+
+    background-color: var(--blue-300);
+}
+
+.input-wrapper input::placeholder {
+    opacity: .5;
+    color: var(--white);
+}
+
+.avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    border-radius: 50%;
+}
+
+main {
+    overflow-y: scroll;
+    background-color: var(--white);
+}
+
+main .container {
+    margin-top: 2.75rem;
+}
+
+h2, h3 {
+    font-weight: 700;
+}
+
+.article {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    margin-bottom: 2rem;
+}
+
+.article img {
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.opinion h2 {
+    margin-bottom: .5rem;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.related-articles {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 1rem;
+}
+
+
+.related-articles img {
+    width: 100%;
+    height: 5rem;
+    
+    border-radius: 5px;
+    
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+footer {
+    text-align: center;
+    background-color: var(--blue-300);
+}
+
+@media (min-width:48rem){
+    main .container {
+        display: grid;
+        flex-direction: row;
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .article {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+
+    aside { 
+        margin-left: 2rem;
+    }
+}
